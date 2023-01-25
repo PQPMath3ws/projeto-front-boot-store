@@ -12,4 +12,5 @@ const CartTitle = styled.h1`
   margin: 10px auto;
   padding-left: 20px;
   color: #ff862d;
+  text-align: center;
 `;
