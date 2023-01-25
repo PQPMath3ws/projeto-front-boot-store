@@ -1,5 +1,6 @@
 import Categories from "../components/Categories";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 import { ShopDiv } from "../styles/ShopStyles";
 
@@ -8,6 +9,7 @@ const Shop = () => {
         <ShopDiv>
             <Header></Header>
             <Categories></Categories>
+            <Footer></Footer>
         </ShopDiv>
     );
 };
