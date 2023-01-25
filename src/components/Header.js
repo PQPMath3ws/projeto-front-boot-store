@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { FaPaw, FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Header = () => {
     const [searchText, setSearchText] = useState("");
+
+    const navigate = useNavigate();
+
+    const navigateTo = (link) => navigate(link);
 
     return (
         <HeaderDiv>
@@ -17,7 +22,7 @@ const Header = () => {
                     <input onChange={(input) => setSearchText(input.target.value)} placeholder="Pesquisar..." type="text" value={searchText}></input>
                     <SearchIcon size="13" color="#767676"></SearchIcon>
                 </SearchDiv>
-                <LoginUserDiv>
+                <LoginUserDiv onClick={() => navigateTo("/sign-in")}>
                     <BsPersonCircle size="22" color="#FFEAD9"></BsPersonCircle>
                     <p>Entrar / Cadastrar</p>
                 </LoginUserDiv>
@@ -84,17 +89,25 @@ const SearchIcon = styled(FaSearch)`
 const LoginUserDiv = styled.div`
     position: absolute;
     display: flex;
-    gap: 10px;
+    gap: 6px;
     align-items: center;
     top: 50%;
     transform: translate(0%, -50%);
     right: 20px;
+    cursor: pointer;
 
     p {
         font-family: 'Roboto Slab', serif;
         color: #FFEAD9;
         font-size: 16px;
         font-weight: 600;
+    }
+
+    &:hover {
+        opacity: 0.7;
+        p {
+            text-decoration: underline;
+        }
     }
 `;
 
