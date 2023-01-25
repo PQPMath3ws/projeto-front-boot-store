@@ -1,8 +1,12 @@
 import Header from "../components/Header";
 
+import { ShopDiv } from "../styles/ShopStyles";
+
 const Shop = () => {
     return (
-        <div></div>
+        <ShopDiv>
+            <Header></Header>
+        </ShopDiv>
     );
 };
 
