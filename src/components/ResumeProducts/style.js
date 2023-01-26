@@ -35,3 +35,38 @@ export const ContainerResumeProducts = styled.div`
     font-weight: 700;
   }
 `;
+
+
+export const ContainerAddItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  input {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+
+    ::placeholder {
+      text-align: center;
+      font-size: 17px;
+      font-weight: 700;
+      color: #0b508a;
+    }
+  }
+
+  button {
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    background-color: #0b508a;
+    border-radius: 5px;
+
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff862d;
+  }
+`;
