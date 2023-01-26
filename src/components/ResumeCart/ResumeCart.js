@@ -1,4 +1,4 @@
-import { ContainerResumeCart, Box1, Box2, Box3, Box4, BtnTotal} from './style'
+import { ContainerResumeCart, Box1, Box2, Box3, Box4, } from './style'
 
 const ResumeCart = () => {
   return (
@@ -16,12 +16,12 @@ const ResumeCart = () => {
         <h2>Desconto</h2>
         <p>R$ 0,00</p>
       </Box3>
-      <hr></hr>
+     
       <Box4>
         <h2>Total</h2>
         <p>R$ 26,90</p>
       </Box4>
-      <BtnTotal>Finalizar Compra</BtnTotal>
+      
     </ContainerResumeCart>
   );
 };

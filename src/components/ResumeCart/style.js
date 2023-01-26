@@ -3,15 +3,17 @@ import styled from "styled-components";
 
 export const ContainerResumeCart = styled.section`
     width: 380px;
-    height: 220px;
+    height: 150px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     border-radius: 15px;
     box-sizing: border-box;
     padding: 15px;
     margin: 10px auto;
 
+    margin-bottom: 80px;
+
     h1{
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 700;
         color: #FF862D;
         margin-bottom: 10px;
@@ -61,7 +63,7 @@ export const Box4 = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 15px auto;
-  color: grey;
+  color: #0B508A;
   font-size: 20px;
   font-weight: 700;
 `;
