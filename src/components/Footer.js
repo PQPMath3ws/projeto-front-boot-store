@@ -5,11 +5,11 @@ const Footer = () => {
     return (
         <FooterDiv>
             <PaymentsMethodsDiv>
-                <FaCcVisa size="50" color="#FFEAD9"></FaCcVisa>
-                <FaCcMastercard size="50" color="#FFEAD9"></FaCcMastercard>
-                <FaCcPaypal size="50" color="#FFEAD9"></FaCcPaypal>
-                <FaCcDiscover size="50" color="#FFEAD9"></FaCcDiscover>
-                <FaRegCreditCard size="50" color="#FFEAD9"></FaRegCreditCard>
+                <FaCcVisa size="50" color="#FAFAFA"></FaCcVisa>
+                <FaCcMastercard size="50" color="#FAFAFA"></FaCcMastercard>
+                <FaCcPaypal size="50" color="#FAFAFA"></FaCcPaypal>
+                <FaCcDiscover size="50" color="#FAFAFA"></FaCcDiscover>
+                <FaRegCreditCard size="50" color="#FAFAFA"></FaRegCreditCard>
             </PaymentsMethodsDiv>
             <FooterInfo>
                 <p>Copyright &#169; 2023 | Pet Heaven | Todos os direitos reservados.</p>
@@ -38,12 +38,12 @@ const PaymentsMethodsDiv = styled.div`
 
 const FooterInfo = styled.div`
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    width: 100%;
+    text-align: center;
     bottom: 14px;
 
     p {
-        color: #FFEAD9;
+        color: #FAFAFA;
         font-size: 12px;
         font-weight: 500;
         font-family: 'Roboto Slab', serif;

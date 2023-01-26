@@ -15,7 +15,7 @@ const Header = () => {
         <HeaderDiv>
             <HeaderContainerDiv>
                 <LogoDiv>
-                    <FaPaw size="30" color="#FFEAD9"></FaPaw>
+                    <FaPaw size="30" color="#FAFAFA"></FaPaw>
                     <p>Pet Heaven</p>
                 </LogoDiv>
                 <SearchDiv>
@@ -23,7 +23,7 @@ const Header = () => {
                     <SearchIcon size="13" color="#767676"></SearchIcon>
                 </SearchDiv>
                 <LoginUserDiv onClick={() => navigateTo("/sign-in")}>
-                    <BsPersonCircle size="22" color="#FFEAD9"></BsPersonCircle>
+                    <BsPersonCircle size="22" color="#FAFAFA"></BsPersonCircle>
                     <p>Entrar / Cadastrar</p>
                 </LoginUserDiv>
             </HeaderContainerDiv>
@@ -56,7 +56,7 @@ const LogoDiv = styled.div`
     transform: translate(0%, -50%);
 
     p {
-        color: #FFEAD9;
+        color: #FAFAFA;
         font-family: 'DynaPuff', cursive;
         font-weight: bold;
         font-size: 24px;
@@ -71,9 +71,9 @@ const SearchDiv = styled.div`
     transform: translate(-100%, -50%);
     input {
         width: 200%;
-        height: 30px;
-        padding-left: 30px;
-        padding-right: 30px;
+        height: 34px;
+        padding-left: 32px;
+        padding-right: 32px;
         border: 1px solid #E4E7ED;
         border-radius: 14px;
         box-sizing: border-box;
@@ -83,7 +83,7 @@ const SearchDiv = styled.div`
 const SearchIcon = styled(FaSearch)`
     position: absolute;
     left: 12px;
-    top: 9px;
+    top: 11px;
 `;
 
 const LoginUserDiv = styled.div`
@@ -98,7 +98,7 @@ const LoginUserDiv = styled.div`
 
     p {
         font-family: 'Roboto Slab', serif;
-        color: #FFEAD9;
+        color: #FAFAFA;
         font-size: 16px;
         font-weight: 600;
     }
