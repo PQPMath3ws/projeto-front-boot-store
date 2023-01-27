@@ -14,7 +14,7 @@ const ProductCard = ({ id, name, price, image, category, requestId }) => {
 
     async function addProductToCart(id) {
         try {
-            await axios.post(`${process.env.REACT_APP_API_URL}/addCart/${id}`, {}, {
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/addCart/${id}`, {}, {
                 headers: {
                     "X-Request-ID": requestId,
                 }
