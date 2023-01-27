@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const Categories = () => {
     return (
         <CategoriesDiv>
-            <CategoryLink to="#cachorro">Cachorro</CategoryLink>
-            <CategoryLink to="#gato">Gato</CategoryLink>
-            <CategoryLink to="#roedores">Roedores</CategoryLink>
-            <CategoryLink to="#vale-presente">Vale-Presente</CategoryLink>
+            <CategoryLink href="#cachorro">Cachorro</CategoryLink>
+            <CategoryLink href="#gato">Gato</CategoryLink>
+            <CategoryLink href="#roedores">Roedores</CategoryLink>
+            <CategoryLink href="#vale-presente">Vale-Presente</CategoryLink>
         </CategoriesDiv>
     );
 };
@@ -23,7 +22,7 @@ const CategoriesDiv = styled.div`
     border-bottom: 3px solid #0B508A44;
 `;
 
-const CategoryLink = styled(Link)`
+const CategoryLink = styled.a`
     color: #0B508A;
     text-decoration: none;
     font-size: 17px;
