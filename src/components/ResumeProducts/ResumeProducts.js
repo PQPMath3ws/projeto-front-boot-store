@@ -6,7 +6,6 @@ const ResumeProducts = () => {
   const { productsInfo, setProductsInfo } = useContext(ResumeProductsContext);
 
   const handleClick = (e, operation) => {
-    
     if (e.amount + operation >= 0) {
       let newAmount = e.amount + operation;
       let val = parseFloat(e.value) + parseFloat(e.originalValue) * operation;
@@ -30,8 +29,8 @@ const ResumeProducts = () => {
       {!productsInfo.length ? (
         <h1>Você não possui produtos</h1>
       ) : (
-        productsInfo.map((e) => (
-          <ContainerResumeProducts key={e.id}>
+        productsInfo.map((e, index) => (
+          <ContainerResumeProducts key={index}>
             <img src={e.imgLink} alt={e.description} />
             <p>{e.description}</p>
             <ContainerAddItem>

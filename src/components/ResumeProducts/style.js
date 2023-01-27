@@ -19,23 +19,28 @@ export const ContainerResumeProducts = styled.div`
   height: 200px;
   background-color: #f7f4ed;
 
-  img{
+  img {
     width: 100px;
     height: 100px;
     border-radius: 10px;
+    margin: 0 auto;
   }
 
-  p{
+  p {
     text-align: left;
   }
 
-  div{
+  div {
     font-size: 25px;
-    color: #FF862D;
+    color: #ff862d;
     font-weight: 700;
   }
-`;
 
+  @media screen and (min-width: 800px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+`;
 
 export const ContainerAddItem = styled.div`
   display: flex;
@@ -69,4 +74,5 @@ export const ContainerAddItem = styled.div`
     font-weight: bold;
     color: #ff862d;
   }
+
 `;

@@ -23,6 +23,11 @@ export const ContainerResumeCart = styled.section`
         width: 100%;
     }
 
+    @media screen and (min-width: 800px) {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
 `
 
 export const Box1 = styled.div`

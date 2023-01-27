@@ -13,4 +13,11 @@ const CartTitle = styled.h1`
   padding-left: 20px;
   color: #ff862d;
   text-align: center;
+
+  @media screen and (min-width: 800px) {
+    text-align: left;
+    width: 1100px;
+  }
+    
+  
 `;

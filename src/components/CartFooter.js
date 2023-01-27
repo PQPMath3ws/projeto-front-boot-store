@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import ResumeProductsContext from "../context/ResumeProductsContext";
 
 const CartFooter = () => {
+  const { total } = useContext(ResumeProductsContext)
+
   return (
     <Container>
-      <h1>Total <span>R$ 26,90</span></h1>
+      <h1>Total <span>R$ {total.toFixed(2)}</span></h1>
       <Button>Finalizar Compra</Button>
     </Container>
   );
@@ -34,9 +38,14 @@ const Container = styled.footer`
     font-weight: 400;
     margin-left: 10px;
   } 
+
+  @media screen and (min-width: 800px) {
+    display:none;
+  }
 `;
 
 const Button = styled.button`
+
   width: 150px;
   height: 45px;
   text-align: center;
