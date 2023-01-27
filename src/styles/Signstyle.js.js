@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from '../../assents/img.jpg'
+import background from '../assents/img.jpg'
 
 
 export const Page = styled.div`

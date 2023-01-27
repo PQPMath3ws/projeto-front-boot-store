@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaPaw } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import {Page, Button, Container, ContainerButton, FocusInput, Form, Input, Limiter, LogoDiv, Titulo, WrapInput, WrapLog} from "./style"
+import {Page, Button, Container, ContainerButton, FocusInput, Form, Input, Limiter, LogoDiv, Titulo, WrapInput, WrapLog} from "../../styles/Signstyle.js"
 import { useState } from "react";
 import { signin } from "../../Services/auth";
 import { useContext } from "react";
