@@ -3,6 +3,11 @@ import { FaPaw } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import {Page, Button, Container, ContainerButton, FocusInput, Form, Input, Limiter, LogoDiv, Titulo, WrapInput, WrapLog} from "./style"
+import { useState } from "react";
+import { signin } from "../../Services/auth";
+import { useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthContext";
+
 
 
 export default function Signin() {
@@ -40,7 +45,7 @@ export default function Signin() {
           </WrapInput>
 
           <ContainerButton>
-            <Button>ENTER</Button>
+             <Button>ENTER</Button>
           </ContainerButton>
 
            <span>
