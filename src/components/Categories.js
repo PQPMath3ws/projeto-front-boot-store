@@ -7,8 +7,6 @@ const Categories = () => {
             <CategoryLink to="#cachorro">Cachorro</CategoryLink>
             <CategoryLink to="#gato">Gato</CategoryLink>
             <CategoryLink to="#roedores">Roedores</CategoryLink>
-            <CategoryLink to="#outros-pets">Outros Pets</CategoryLink>
-            <CategoryLink to="#servicos">Serviços</CategoryLink>
             <CategoryLink to="#vale-presente">Vale-Presente</CategoryLink>
         </CategoriesDiv>
     );
