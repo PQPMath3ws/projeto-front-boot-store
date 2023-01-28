@@ -41,7 +41,7 @@ const Shop = () => {
 
     return (
         <ShopDiv>
-            <Header></Header>
+            <Header user={userId}></Header>
             <Categories></Categories>
             <ShopProductsDiv>
                 <ShopProductsContainerDiv>

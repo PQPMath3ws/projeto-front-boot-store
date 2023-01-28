@@ -1,15 +1,38 @@
+import axios from "axios";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
-import { FaPaw, FaSearch } from "react-icons/fa";
+import { FaPaw, FaSearch, FaShoppingCart } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
-const Header = () => {
+const Header = ({ user }) => {
     const [searchText, setSearchText] = useState("");
+    const [cartInterval, setCartInterval] = useState(null);
+    const [getCart, setCart] = useState([]);
 
     const navigate = useNavigate();
 
     const navigateTo = (link) => navigate(link);
+
+    async function getUserCart() {
+        const request = await axios.get(`${process.env.REACT_APP_API_URL}/api/get-user-cart`, {
+            headers: {
+                "X-Request-ID": user,
+            }
+        });
+        return request.data;
+    }
+
+    useEffect(() => {
+        if (cartInterval) setCartInterval(clearInterval(cartInterval));
+        setCartInterval(setInterval(() => {
+            getUserCart().then(data => {
+                setCart(data);
+            }).catch(_ => {
+                setCart([]);
+            });
+        }, 500));
+    }, []);
 
     return (
         <HeaderDiv>
@@ -22,10 +45,18 @@ const Header = () => {
                     <input onChange={(input) => setSearchText(input.target.value)} placeholder="Pesquisar..." type="text" value={searchText}></input>
                     <SearchIcon size="13" color="#767676"></SearchIcon>
                 </SearchDiv>
-                <LoginUserDiv onClick={() => navigateTo("/sign-in")}>
-                    <BsPersonCircle size="22" color="#FAFAFA"></BsPersonCircle>
-                    <p>Entrar / Cadastrar</p>
-                </LoginUserDiv>
+                <RightDiv>
+                    <CartDiv>
+                        <FaShoppingCart size="22" color="#FAFAFA"></FaShoppingCart>
+                        <CartQuantityDiv>
+                            <p>{getCart.length}</p>
+                        </CartQuantityDiv>
+                    </CartDiv>
+                    <LoginUserDiv onClick={() => navigateTo("/sign-in")}>
+                        <BsPersonCircle size="22" color="#FAFAFA"></BsPersonCircle>
+                        <p>Entrar / Cadastrar</p>
+                    </LoginUserDiv>
+                </RightDiv>
             </HeaderContainerDiv>
         </HeaderDiv>
     )
@@ -86,14 +117,49 @@ const SearchIcon = styled(FaSearch)`
     top: 11px;
 `;
 
-const LoginUserDiv = styled.div`
+const RightDiv = styled.div`
     position: absolute;
     display: flex;
-    gap: 6px;
-    align-items: center;
+    text-align: center;
+    gap: 30px;
     top: 50%;
     transform: translate(0%, -50%);
     right: 20px;
+`;
+
+const CartDiv = styled.div`
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 50px;
+    height: 22px;
+`;
+
+const CartQuantityDiv = styled.div`
+    position: absolute;
+    background-color: #202020EE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -12px;
+    right: -14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    p {
+        font-family: 'DynaPuff', cursive;
+        color: #FAFAFA;
+        font-size: 10px;
+        font-weight: 700;
+    }
+`;
+
+const LoginUserDiv = styled.div`
+    display: flex;
+    gap: 6px;
+    align-items: center;
     cursor: pointer;
 
     p {
