@@ -109,6 +109,66 @@ const SearchDiv = styled.div`
         border-radius: 14px;
         box-sizing: border-box;
     }
+
+    @media (min-width: 922px) and (max-width: 995px) {
+        top: 50%;
+        transform: translate(-95%, -50%);
+        input {
+            width: 180%;
+        }
+    }
+
+    @media (min-width: 845px) and (max-width: 922px) {
+        top: 50%;
+        transform: translate(-88%, -50%);
+        input {
+            width: 160%;
+        }
+    }
+
+    @media (min-width: 794px) and (max-width: 845px) {
+        top: 50%;
+        transform: translate(-78%, -50%);
+        input {
+            width: 140%;
+        }
+    }
+
+    @media (min-width: 756px) and (max-width: 794px) {
+        top: 50%;
+        transform: translate(-68%, -50%);
+        input {
+            width: 120%;
+        }
+    }
+
+    @media (min-width: 695px) and (max-width: 756px) {
+        top: 50%;
+        transform: translate(-58%, -50%);
+        input {
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 650px) and (max-width: 695px) {
+        top: 50%;
+        transform: translate(-48%, -50%);
+        input {
+            width: 80%;
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 650px) {
+        top: 50%;
+        transform: translate(-38%, -50%);
+        input {
+            width: 60%;
+        }
+    }
+
+    @media (min-width: 400px) and (max-width: 600px) {
+        display: none;
+    }
 `;
 
 const SearchIcon = styled(FaSearch)`
