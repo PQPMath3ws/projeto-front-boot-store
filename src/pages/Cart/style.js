@@ -12,7 +12,7 @@ export const CartContainer = styled.main`
   @media screen and (min-width: 800px) {
     flex-direction: row;
     justify-content: space-between;
-    width: 1100px;
+    width: 1024px;
     height: 640px;
     margin: 0 auto;
   }

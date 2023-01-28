@@ -11,6 +11,8 @@ import ResumeProductsContext from "../../context/ResumeProductsContext";
 const Carrinho = () => {
   const [productsInfo, setProductsInfo] = useState([]);
   const [total, setTotal] = useState(0);
+  const [cep, setCep] = useState(0);
+  const [userTotal, setUserTotal] = useState(0)
 
   useEffect(() => {
     const products = [
@@ -23,52 +25,39 @@ const Carrinho = () => {
         amount: 1,
       },
       {
-        description: "Granulado de Madeira Meau para Gatos",
-        value: "68.31",
-        originalValue: "68.31",
+        description: "Ração Seca Nutrilus Pro+ Carne para Gatos Adultos",
+        value: "129.12",
+        originalValue: "129.12",
         imgLink:
-          "https://www.petlove.com.br/images/products/250924/product/_2679309_Granulado-Madeira-20.jpg?1636403458",
+          "https://www.petlove.com.br/images/products/250518/product/2661128_FRENTE.jpg?1635791683",
         amount: 1,
       },
       {
-        description: "Ração GranPlus Choice Frango e Carne para Gatos Adultos",
-        value: "128.61",
-        originalValue: "128.61",
+        description: "Ração Seca Nutrilus Pro+ Carne para Gatos Adultos",
+        value: "129.12",
+        originalValue: "129.12",
         imgLink:
-          "https://www.petlove.com.br/images/products/242837/product/2493027_Ra%C3%A7%C3%A3o_Affinity_PetCare_GranPlus_Choice_Frango_e_Carne_para_Gatos_Adultos_1.jpg?1628185779",
+          "https://www.petlove.com.br/images/products/250518/product/2661128_FRENTE.jpg?1635791683",
+        amount: 1,
+      }, {
+        description: "Ração Seca Nutrilus Pro+ Carne para Gatos Adultos",
+        value: "129.12",
+        originalValue: "129.12",
+        imgLink:
+          "https://www.petlove.com.br/images/products/250518/product/2661128_FRENTE.jpg?1635791683",
         amount: 1,
       },
-      {
-        description: "Ração GranPlus Choice Frango e Carne para Gatos Adultos",
-        value: "128.61",
-        originalValue: "128.61",
-        imgLink:
-          "https://www.petlove.com.br/images/products/242837/product/2493027_Ra%C3%A7%C3%A3o_Affinity_PetCare_GranPlus_Choice_Frango_e_Carne_para_Gatos_Adultos_1.jpg?1628185779",
-        amount: 1,
-      },
-      {
-        description: "Ração GranPlus Choice Frango e Carne para Gatos Adultos",
-        value: "128.61",
-        originalValue: "128.61",
-        imgLink:
-          "https://www.petlove.com.br/images/products/242837/product/2493027_Ra%C3%A7%C3%A3o_Affinity_PetCare_GranPlus_Choice_Frango_e_Carne_para_Gatos_Adultos_1.jpg?1628185779",
-        amount: 1,
-      },
-      {
-        description: "Ração GranPlus Choice Frango e Carne para Gatos Adultos",
-        value: "128.61",
-        originalValue: "128.61",
-        imgLink:
-          "https://www.petlove.com.br/images/products/242837/product/2493027_Ra%C3%A7%C3%A3o_Affinity_PetCare_GranPlus_Choice_Frango_e_Carne_para_Gatos_Adultos_1.jpg?1628185779",
-        amount: 1,
-      },
+
     ];
     setProductsInfo(products);
   }, []);
 
+
+
+
   return (
     <ResumeProductsContext.Provider
-      value={{ productsInfo, setProductsInfo, total, setTotal }}
+      value={{ productsInfo, setProductsInfo, total, setTotal, setCep, cep, userTotal, setUserTotal }}
     >
       <Container>
         <Header />

@@ -16,7 +16,7 @@ const CartTitle = styled.h1`
 
   @media screen and (min-width: 800px) {
     text-align: left;
-    width: 1100px;
+    width: 1024px;
   }
     
   

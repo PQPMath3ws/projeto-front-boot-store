@@ -1,6 +1,8 @@
 import { ContainerResumeProducts, ContainerAddItem } from "./style";
 import { useContext } from "react";
 import ResumeProductsContext from "../../context/ResumeProductsContext";
+import { IoTrashBinOutline } from 'react-icons/io5'
+import styled from "styled-components";
 
 const ResumeProducts = () => {
   const { productsInfo, setProductsInfo } = useContext(ResumeProductsContext);
@@ -24,6 +26,14 @@ const ResumeProducts = () => {
     }
   };
 
+  const removeItem = (e) => {
+    const arr = [...productsInfo]
+    console.log(e)
+    const newArr = arr.filter((elm => elm !== e))
+    console.log(newArr)
+    setProductsInfo(newArr)
+  }
+
   return (
     <>
       {!productsInfo.length ? (
@@ -38,7 +48,11 @@ const ResumeProducts = () => {
               <input placeholder={e.amount} readOnly />
               <button onClick={() => handleClick(e, 1)}>+</button>
             </ContainerAddItem>
-            <div>R$ {e.value}</div>
+            <ContainerValueAndTrash>
+              R$ {e.value}
+              <IoTrashBinOutline onClick={() => removeItem(e)} />
+            </ContainerValueAndTrash>
+
           </ContainerResumeProducts>
         ))
       )}
@@ -47,3 +61,10 @@ const ResumeProducts = () => {
 };
 
 export default ResumeProducts;
+
+const ContainerValueAndTrash = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`

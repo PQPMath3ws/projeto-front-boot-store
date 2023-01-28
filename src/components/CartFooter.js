@@ -3,11 +3,11 @@ import styled from "styled-components";
 import ResumeProductsContext from "../context/ResumeProductsContext";
 
 const CartFooter = () => {
-  const { total } = useContext(ResumeProductsContext)
+  const { userTotal } = useContext(ResumeProductsContext)
 
   return (
     <Container>
-      <h1>Total <span>R$ {total.toFixed(2)}</span></h1>
+      <h1>Total <span>R$ {userTotal.toFixed(2)}</span></h1>
       <Button>Finalizar Compra</Button>
     </Container>
   );
