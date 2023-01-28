@@ -19,6 +19,7 @@ const ProductCard = ({ id, name, price, image, category, requestId }) => {
                     "X-Request-ID": requestId,
                 }
             });
+            alert("Produto adicionado ao carrinho!");
         } catch (_) {
             alert("Erro ao adicionar produto ao carrinho!");
         }
@@ -31,7 +32,7 @@ const ProductCard = ({ id, name, price, image, category, requestId }) => {
                 <div>
                     <CategoryName>{category}</CategoryName>
                     <ProductName>{name}</ProductName>
-                    <PriceText>R$ {price}</PriceText>
+                    <PriceText>R$ {parseFloat(price).toFixed(2)}</PriceText>
                 </div>
             </ProductCardContainer>
             <AddToCartBtn opacity={buttonOpacity} onClick={() => addProductToCart(id)}>
