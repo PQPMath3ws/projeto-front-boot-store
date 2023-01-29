@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 
-import { ProductDiv, ProductsDiv, SearchDiv, SearchContainerDiv, SearchResultsDiv, SearchText } from "../styles/SearchStyle";
+import { NoSearchFoundText, ProductDiv, ProductsDiv, SearchDiv, SearchContainerDiv, SearchResultsDiv, SearchText } from "../styles/SearchStyle";
 
 const Search = () => {
     const [userId, setUserId] = useState(localStorage.getItem("user_id"));
@@ -49,12 +49,13 @@ const Search = () => {
             <SearchResultsDiv>
                 <SearchContainerDiv>
                     <SearchText>Resultados da Busca</SearchText>
-                    <ProductsDiv>
+                    {searchResult && searchResult.length > 0 && <ProductsDiv>
                         <ProductDiv>
                             {searchResult && searchResult.map(produto => <ProductCard key={produto._id} id={produto._id} name={produto.name} price={produto.descountPrice ? produto.descountPrice : produto.price} image={produto.image} category={produto.category} requestId={userId}>
                             </ProductCard>)}
                         </ProductDiv>
-                    </ProductsDiv>
+                    </ProductsDiv>}
+                    {searchResult && searchResult.length === 0 && <NoSearchFoundText>Nenhum Produto Encontrado Com Base No Termo Pesquisado...</NoSearchFoundText>}
                 </SearchContainerDiv>
             </SearchResultsDiv>
             <Footer></Footer>

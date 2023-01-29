@@ -52,4 +52,13 @@ const ProductDiv = styled.div`
     scrollbar-width: thin;
 `;
 
-export { ProductDiv, ProductsDiv, SearchDiv, SearchContainerDiv, SearchResultsDiv, SearchText };
+const NoSearchFoundText = styled.div`
+    margin-top: 10px;
+    color: #0B508A;
+    font-family: 'DynaPuff', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+`;
+
+export { NoSearchFoundText, ProductDiv, ProductsDiv, SearchDiv, SearchContainerDiv, SearchResultsDiv, SearchText };

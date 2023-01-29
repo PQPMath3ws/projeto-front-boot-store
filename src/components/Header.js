@@ -42,7 +42,12 @@ const Header = ({ user }) => {
                     <p>Pet Heaven</p>
                 </LogoDiv>
                 <SearchDiv>
-                    <input onKeyDown={(input) => (searchText && input.key === "Enter") ? navigate("/search", { state: { search: searchText } }) : null} onChange={(input) => setSearchText(input.target.value)} placeholder="Pesquisar..." type="text" value={searchText}></input>
+                    <input onKeyDown={(input) => {
+                        if (searchText && input.key === "Enter") {
+                            navigate("/search", { state: { search: searchText }, replace: true });
+                            window.location.reload(false);
+                        }
+                    }} onChange={(input) => setSearchText(input.target.value)} placeholder="Pesquisar..." type="text" value={searchText}></input>
                     <SearchIcon size="13" color="#767676"></SearchIcon>
                 </SearchDiv>
                 <RightDiv>
