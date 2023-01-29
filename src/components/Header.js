@@ -37,7 +37,7 @@ const Header = ({ user }) => {
     return (
         <HeaderDiv>
             <HeaderContainerDiv>
-                <LogoDiv>
+                <LogoDiv onClick={() => navigateTo("/")}>
                     <FaPaw size="30" color="#FAFAFA"></FaPaw>
                     <p>Pet Heaven</p>
                 </LogoDiv>
@@ -46,7 +46,7 @@ const Header = ({ user }) => {
                     <SearchIcon size="13" color="#767676"></SearchIcon>
                 </SearchDiv>
                 <RightDiv>
-                    <CartDiv>
+                    <CartDiv onClick={() => navigateTo("/cart")}>
                         <FaShoppingCart size="22" color="#FAFAFA"></FaShoppingCart>
                         <CartQuantityDiv>
                             <p>{getCart.length}</p>
@@ -85,6 +85,7 @@ const LogoDiv = styled.div`
     left: 20px;
     top: 50%;
     transform: translate(0%, -50%);
+    cursor: pointer;
 
     p {
         color: #FAFAFA;
@@ -92,6 +93,10 @@ const LogoDiv = styled.div`
         font-weight: bold;
         font-size: 24px;
         margin-top: 4px;
+    }
+
+    &:hover {
+        opacity: 0.8;
     }
 `;
 
@@ -194,6 +199,11 @@ const CartDiv = styled.div`
     justify-content: flex-end;
     width: 50px;
     height: 22px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
 `;
 
 const CartQuantityDiv = styled.div`
