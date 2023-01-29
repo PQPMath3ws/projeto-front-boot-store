@@ -30,6 +30,7 @@ const Header = ({ user }) => {
                 setCart(data);
             }).catch(_ => {
                 setCart([]);
+                window.location.reload(false);
             });
         }, 1000));
     }, []);
