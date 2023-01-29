@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^1.2.4",
+    "dotenv": "^16.0.3",
     "eslint": "^8.32.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

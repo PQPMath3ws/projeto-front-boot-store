@@ -7,6 +7,8 @@ import FreightCalculator from "../../components/FreightCalculator/FreightCalcula
 import CartFooter from "../../components/CartFooter";
 import { useEffect, useState } from "react";
 import ResumeProductsContext from "../../context/ResumeProductsContext";
+import axios from "axios";
+import { DATABASE_URL } from '../../constants/serverConection'
 
 const Carrinho = () => {
   const [productsInfo, setProductsInfo] = useState([]);
@@ -52,8 +54,35 @@ const Carrinho = () => {
     setProductsInfo(products);
   }, []);
 
+  const handleClick = () => {
 
+    //Insert token authorization from logins page
+    const token = ""
+    const user = 'eng.jansenosorio@gmail.com'
 
+    const header = {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    }
+
+    const body = {
+      user: user,
+      valueTotal: userTotal,
+      freight: cep,
+      products: productsInfo
+    }
+
+    const promise = axios.post(`${DATABASE_URL}/checkout`, body)
+
+    promise.then(res => {
+      alert(res.data)
+    })
+    promise.catch(err => {
+      console.log(err.response)
+    })
+
+  }
 
   return (
     <ResumeProductsContext.Provider
@@ -69,7 +98,7 @@ const Carrinho = () => {
           <CartContainer2>
             <FreightCalculator />
             <ResumeCart />
-            <Button>Finalizar Compra</Button>
+            <Button onClick={() => handleClick()}>Finalizar Compra</Button>
           </CartContainer2>
         </CartContainer>
         <CartFooter />
