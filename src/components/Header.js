@@ -31,7 +31,7 @@ const Header = ({ user }) => {
             }).catch(_ => {
                 setCart([]);
             });
-        }, 500));
+        }, 1000));
     }, []);
 
     return (
@@ -42,7 +42,7 @@ const Header = ({ user }) => {
                     <p>Pet Heaven</p>
                 </LogoDiv>
                 <SearchDiv>
-                    <input onChange={(input) => setSearchText(input.target.value)} placeholder="Pesquisar..." type="text" value={searchText}></input>
+                    <input onKeyDown={(input) => (searchText && input.key === "Enter") ? navigate("/search", { state: { search: searchText } }) : null} onChange={(input) => setSearchText(input.target.value)} placeholder="Pesquisar..." type="text" value={searchText}></input>
                     <SearchIcon size="13" color="#767676"></SearchIcon>
                 </SearchDiv>
                 <RightDiv>

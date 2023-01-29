@@ -11,7 +11,7 @@ import { CategoryDiv, ProductsDiv, ShopDiv, ShopProductsDiv, ShopProductsContain
 
 const Shop = () => {
     const [userId, setUserId] = useState(localStorage.getItem("user_id"));
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState({});
 
     async function generateUserId() {
         const request = await axios.get(`${process.env.REACT_APP_API_URL}/api/new-user`);
