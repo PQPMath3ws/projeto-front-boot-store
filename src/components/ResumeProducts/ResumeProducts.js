@@ -1,3 +1,4 @@
+import axios from "axios";
 import { ContainerResumeProducts, ContainerAddItem } from "./style";
 import { useContext } from "react";
 import ResumeProductsContext from "../../context/ResumeProductsContext";
@@ -5,12 +6,12 @@ import { IoTrashBinOutline } from 'react-icons/io5'
 import styled from "styled-components";
 
 const ResumeProducts = () => {
-  const { productsInfo, setProductsInfo } = useContext(ResumeProductsContext);
+  const { productsInfo, setProductsInfo, userId } = useContext(ResumeProductsContext);
 
   const handleClick = (e, operation) => {
     if (e.amount + operation >= 0) {
       let newAmount = e.amount + operation;
-      let val = parseFloat(e.value) + parseFloat(e.originalValue) * operation;
+      let val = parseFloat(e.value ? e.value : e.product.descountPrice ? e.product.descountPrice : e.product.price) + parseFloat(e.product.descountPrice ? e.product.descountPrice : e.product.price)   * operation;
       setProductsInfo(
         productsInfo.map((elm) => {
           if (elm === e) {
@@ -27,11 +28,15 @@ const ResumeProducts = () => {
   };
 
   const removeItem = (e) => {
-    const arr = [...productsInfo]
-    console.log(e)
-    const newArr = arr.filter((elm => elm !== e))
-    console.log(newArr)
-    setProductsInfo(newArr)
+    axios.delete(`${process.env.REACT_APP_API_URL}/api/removeCart/${e._id}`, {
+      headers: {
+        "X-Request-ID": userId
+      }
+    }).then(_ => {
+      window.location.reload(false);
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   return (
@@ -41,15 +46,15 @@ const ResumeProducts = () => {
       ) : (
         productsInfo.map((e, index) => (
           <ContainerResumeProducts key={index}>
-            <img src={e.imgLink} alt={e.description} />
-            <p>{e.description}</p>
+            <img src={e.product.image} alt={e.product.name} />
+            <p>{e.product.name}</p>
             <ContainerAddItem>
               <button onClick={() => handleClick(e, -1)}>-</button>
               <input placeholder={e.amount} readOnly />
               <button onClick={() => handleClick(e, 1)}>+</button>
             </ContainerAddItem>
             <ContainerValueAndTrash>
-              R$ {e.value}
+              R$ {e.value ? e.value : e.product.descountPrice ? e.product.descountPrice : e.product.price}
               <IoTrashBinOutline onClick={() => removeItem(e)} />
             </ContainerValueAndTrash>
 
