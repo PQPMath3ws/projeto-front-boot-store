@@ -1,14 +1,36 @@
+import axios from "axios";
 import { useContext } from "react";
 import styled from "styled-components";
 import ResumeProductsContext from "../context/ResumeProductsContext";
 
 const CartFooter = () => {
-  const { userTotal } = useContext(ResumeProductsContext)
+  const { userId, userTotal, cep, productsInfo } = useContext(ResumeProductsContext)
+
+  const handleClick = () => {
+
+    const body = {
+      user: userId,
+      valueTotal: userTotal,
+      freight: cep,
+      products: productsInfo
+    }
+
+    const promise = axios.post(`${process.env.REACT_APP_API_URL}/checkout`, body)
+
+    promise.then(res => {
+      alert(res.data)
+      window.location.reload(false);
+    })
+    promise.catch(err => {
+      console.log(err.response)
+    })
+
+  }
 
   return (
     <Container>
       <h1>Total <span>R$ {userTotal.toFixed(2)}</span></h1>
-      <Button>Finalizar Compra</Button>
+      <Button onClick={() => handleClick()}>Finalizar Compra</Button>
     </Container>
   );
 };

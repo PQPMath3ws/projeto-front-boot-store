@@ -48,7 +48,6 @@ const Product = () => {
         }
         getProductById().then(data => {
             setProduct(data);
-            console.log(data);
         }).catch(_ => {
             window.location.reload(false);
         });

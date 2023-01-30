@@ -6,10 +6,9 @@ const ResumeCart = () => {
   
   const { productsInfo, total, setTotal, cep, userTotal, setUserTotal } = useContext(ResumeProductsContext);
   
-  console.log(userTotal)
   useEffect(() => {
     const sumValues = (arr) =>
-      arr.reduce((acc, obj) => acc + parseFloat(obj.value), 0);
+      arr.reduce((acc, obj) => acc + parseFloat(obj.value ? obj.value : obj.product.descountPrice ? obj.product.descountPrice : obj.product.price), 0);
     setTotal(sumValues(productsInfo));
     setUserTotal(cep + sumValues(productsInfo))
   }, [productsInfo, setTotal, cep, setUserTotal]);
